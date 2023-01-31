@@ -1,3 +1,5 @@
+/* eslint-disable prettier/prettier */
+
 import React from 'react'
 
 const Dashboard = React.lazy(() => import('./views/dashboard/Dashboard'))
@@ -50,6 +52,26 @@ const Toasts = React.lazy(() => import('./views/notifications/toasts/Toasts'))
 
 const Widgets = React.lazy(() => import('./views/widgets/Widgets'))
 
+// Product
+const AllProduct = React.lazy(() => import('./views/product/AllProducts/index'))
+const AddProduct = React.lazy(() => import('./views/product/AddProduct/index'))
+const ShowProduct = React.lazy(() => import('./views/product/ShowProduct/index'))
+const EditProduct = React.lazy(() => import('./views/product/EditProduct/index'))
+
+//Boooking
+const AllBooking = React.lazy(() => import('./views/Booking/AllBooking/index'))
+const ShowBooking = React.lazy(() => import('./views/Booking/ShowBooking/index'))
+
+//Review
+const AllReview = React.lazy(() => import('./views/Review/AllReview/index'))
+const ShowReview = React.lazy(() => import('./views/Review/ShowReview/index'))
+
+//Account
+const Profile = React.lazy(()=> import('./views/account/Profile'))
+const Security = React.lazy(()=> import('./views/account/Security'))
+const Payment = React.lazy(()=> import('./views/account/Payment'))
+
+
 const routes = [
   { path: '/', exact: true, name: 'Home' },
   { path: '/dashboard', name: 'Dashboard', element: Dashboard },
@@ -95,6 +117,26 @@ const routes = [
   { path: '/notifications/modals', name: 'Modals', element: Modals },
   { path: '/notifications/toasts', name: 'Toasts', element: Toasts },
   { path: '/widgets', name: 'Widgets', element: Widgets },
+
+  { path: '/Product', name: 'Product', element: AllProduct },
+  { path: '/Product/All-Product', name: 'ALL-Product', element: AllProduct },
+  { path: '/Product/Add-Product', name: 'Add-Product', element: AddProduct },
+  { path: '/Product/Show-Product/:slug&:id', name: 'Show-Product', element: ShowProduct },
+  { path: '/Product/Edit-Product/:slug&:id', name: 'Edit-Product', element: EditProduct },
+
+  { path: '/Booking', name: 'Booking', element: AllBooking },
+  { path: '/Booking/All-Booking', name: 'All-Booking', element: AllBooking },
+  { path: '/Booking/Show-Booking/:slug&:id', name: 'Show-Booking', element: ShowBooking },
+
+  { path: '/Review', name: 'Review', element: AllReview },
+  { path: '/Review/All-Review', name: 'All-Review', element: AllReview },
+  { path: '/Review/Show-Review', name: 'Show-Review', element: ShowReview },
+
+  { path: '/Account', name: 'Account', element: Profile },
+  { path: '/Account/Profile', name: 'Profile', element: Profile },
+  { path: '/Account/Security', name: 'Security', element: Security },
+  { path: '/Account/Payment', name: 'Payment', element: Payment },
+
 ]
 
 export default routes

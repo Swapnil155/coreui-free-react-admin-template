@@ -1,5 +1,7 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+/* eslint-disable prettier/prettier */
+import React, { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import AuthService from 'src/services/auth.service'
 import {
   CButton,
   CCard,
@@ -16,7 +18,50 @@ import {
 import CIcon from '@coreui/icons-react'
 import { cilLockLocked, cilUser } from '@coreui/icons'
 
+const initialstate = {
+  email : '',
+  password : ''
+} 
+
 const Login = () => {
+  const navigate = useNavigate()
+  const [loginCredential, setLoginCredential] = useState(initialstate)
+
+  const changeHandler = (e) =>{
+    setLoginCredential({...loginCredential,
+    [e.target.name]: e.target.value,
+    [e.target.name]: e.target.value})
+  }
+
+  const onSubmitHandler = async (e) => {
+  
+    console.log(loginCredential)
+    e.preventDefault();
+    try {
+        await AuthService.login(loginCredential.email, loginCredential.password).then(
+        (res) => {
+          console.log(res)
+          if (res.status === 400 || res.status === 401){
+            window.alert(res.data.Error[0].message)
+            // window.location.reload()
+          }
+          if (res.status === 200) {
+            navigate("/dashboard")
+            window.alert(`Welcome Back`)
+            window.location.reload()
+          } 
+        });
+
+    } catch (error) {
+      const err = error.response
+      console.log(err)
+      if(err.status === 401 || err.status === 400){
+         window.alert(err.data.Error[0].message)
+      }
+
+    }
+  }
+  
   return (
     <div className="bg-light min-vh-100 d-flex flex-row align-items-center">
       <CContainer>
@@ -25,14 +70,21 @@ const Login = () => {
             <CCardGroup>
               <CCard className="p-4">
                 <CCardBody>
-                  <CForm>
+                  <CForm onSubmit={onSubmitHandler}>
                     <h1>Login</h1>
                     <p className="text-medium-emphasis">Sign In to your account</p>
                     <CInputGroup className="mb-3">
                       <CInputGroupText>
                         <CIcon icon={cilUser} />
                       </CInputGroupText>
-                      <CFormInput placeholder="Username" autoComplete="username" />
+                      <CFormInput 
+                        placeholder="Username" 
+                        autoComplete="username" 
+                        name='email' 
+                        onChange={changeHandler} 
+                        defaultValue={loginCredential.email}
+                        required 
+                      />
                     </CInputGroup>
                     <CInputGroup className="mb-4">
                       <CInputGroupText>
@@ -42,11 +94,15 @@ const Login = () => {
                         type="password"
                         placeholder="Password"
                         autoComplete="current-password"
+                        name='password'
+                        onChange={changeHandler}
+                        defaultValue={loginCredential.password}
+                        required
                       />
                     </CInputGroup>
                     <CRow>
                       <CCol xs={6}>
-                        <CButton color="primary" className="px-4">
+                        <CButton type='submit' color="primary" className="px-4">
                           Login
                         </CButton>
                       </CCol>
