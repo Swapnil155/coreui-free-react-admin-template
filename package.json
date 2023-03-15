@@ -1,7 +1,7 @@
 {
   "proxy": "http://localhost:3350",
   "name": "@coreui/coreui-free-react-admin-template",
-  "version": "4.2.0",
+  "version": "4.5.0",
   "description": "CoreUI Free React Admin Template",
   "homepage": ".",
   "bugs": {
@@ -15,7 +15,6 @@
   "author": "The CoreUI Team (https://github.com/orgs/coreui/people)",
   "scripts": {
     "build": "react-scripts build",
-    "changelog": "auto-changelog --starting-version 4.1.0 --commit-limit false --hide-credit",
     "eject": "react-scripts eject",
     "lint": "eslint \"src/**/*.js\"",
     "start": "react-scripts start",
@@ -23,10 +22,8 @@
     "test:cov": "npm test -- --coverage --watchAll=false",
     "test:debug": "react-scripts --inspect-brk test --runInBand"
   },
-  "config": {
-    "coreui_library_short_version": "4.1"
-  },
   "dependencies": {
+<<<<<<< HEAD
     "@coreui/chartjs": "^3.0.0",
     "@coreui/coreui": "^4.1.2",
     "@coreui/icons": "^2.1.0",
@@ -39,27 +36,46 @@
     "classnames": "^2.3.1",
     "core-js": "^3.21.1",
     "draft-js": "^0.11.7",
+=======
+    "@coreui/chartjs": "^3.1.1",
+    "@coreui/coreui": "^4.2.6",
+    "@coreui/icons": "^3.0.1",
+    "@coreui/icons-react": "^2.1.0",
+    "@coreui/react": "^4.6.0",
+    "@coreui/react-chartjs": "^2.1.2",
+    "@coreui/utils": "^2.0.1",
+    "chart.js": "^3.9.1",
+    "classnames": "^2.3.2",
+    "core-js": "^3.29.0",
+>>>>>>> 0878d759385e9a276c796505d02d0e25a7bd4ff3
     "prop-types": "^15.8.1",
-    "react": "^17.0.2",
+    "react": "^18.2.0",
     "react-app-polyfill": "^3.0.0",
+<<<<<<< HEAD
     "react-dom": "^17.0.2",
     "react-draft-wysiwyg": "^1.14.7",
     "react-redux": "^7.2.6",
     "react-router-dom": "^6.2.2",
     "redux": "4.1.2",
     "simplebar-react": "^2.3.6"
+=======
+    "react-dom": "^18.2.0",
+    "react-redux": "^8.0.5",
+    "react-router-dom": "^6.8.2",
+    "redux": "4.2.1",
+    "simplebar-react": "^2.4.3"
+>>>>>>> 0878d759385e9a276c796505d02d0e25a7bd4ff3
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "^5.16.2",
-    "@testing-library/react": "^12.1.3",
-    "@testing-library/user-event": "^13.5.0",
-    "auto-changelog": "~2.4.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "prettier": "2.5.1",
-    "react-scripts": "5.0.0",
-    "sass": "^1.49.9",
-    "web-vitals": "^2.1.4"
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^14.0.0",
+    "@testing-library/user-event": "^14.4.3",
+    "eslint-config-prettier": "^8.7.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "2.8.4",
+    "react-scripts": "5.0.1",
+    "sass": "^1.58.3",
+    "web-vitals": "^3.1.1"
   },
   "engines": {
     "node": ">=10",

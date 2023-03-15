@@ -5,6 +5,7 @@ import {
   cilCalculator,
   cilChartPie,
   cilCursor,
+  cilDescription,
   cilDrop,
   cilNotes,
   cilPencil,
@@ -60,6 +61,12 @@ const _nav = [
     name: 'All Review',
     to: '/Review/All-Review',
     icon: <CIcon icon={cilStar} customClassName="nav-icon" />,
+  },
+  {
+    component: CNavItem,
+    name: 'Docs',
+    href: 'https://coreui.io/react/docs/templates/installation/',
+    icon: <CIcon icon={cilDescription} customClassName="nav-icon" />,
   },
 ]
 
